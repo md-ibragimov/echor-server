@@ -1,7 +1,7 @@
 use sqlx::postgres::PgPoolOptions;
-use sqlx::{Pool, Postgres};
+use sqlx::{PgPool};
 
-pub async fn connect() -> Pool<Postgres> {
+pub async fn connect() -> PgPool {
     dotenvy::dotenv().ok();
     let database_url = std::env::var("DATABASE_URL").expect("database_url is missing in env");
 
